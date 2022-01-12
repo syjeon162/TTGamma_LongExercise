@@ -87,7 +87,7 @@ if __name__ == "__main__":
             print("Are you sure you want to use only one worker?")
         cluster = LPCCondorCluster(
             transfer_input_files="ttgamma",
-            log_directory="/uscms/home/ncsmith/dask_logs",
+           
         )
         cluster.adapt(minimum=1, maximum=args.workers)
         executor = processor.DaskExecutor(client=Client(cluster), status=not args.batch)
