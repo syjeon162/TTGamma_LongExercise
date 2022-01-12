@@ -25,6 +25,8 @@ dummy_sig lnN       1.2         -           -           -           -           
 dummy_bkg lnN       -           1.15        1.15        1.15        1.15        1.15
 dummy_all lnN       1.05        1.05        1.05        1.05        1.05        1.05
 
+puWeight shape      1.          1.          1.          1.          1.          1.
+
 * autoMCStats 0 1 1
 
 ------------

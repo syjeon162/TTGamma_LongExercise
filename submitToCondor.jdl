@@ -1,0 +1,35 @@
+universe = vanilla
+Executable = runFullDataset.py
++SingularityImage = "/cvmfs/unpacked.cern.ch/registry.hub.docker.com/coffeateam/coffea-dask:latest"
+
+use_x509userproxy = true
+should_transfer_files = YES
+WhenToTransferOutput  = ON_EXIT_OR_EVICT
+notification = never
+
+Transfer_Input_Files = ttgamma
+
+Output = condorOutputs/coffeaOutput_$(cluster)_$(process).stdout
+Error  = condorOutputs/coffeaOutput_$(cluster)_$(process).stderr
+Log    = condorOutputs/coffeaOutput_$(cluster)_$(process).condor
+
+request_cpus = 2
+request_memory = 8000
+CommonArgs = -e local --batch --outdir . --workers 2
+
+Arguments = $(CommonArgs) MCTTGamma
+Queue 1
+Arguments = $(CommonArgs) MCTTbar1l
+Queue 1
+Arguments = $(CommonArgs) MCTTbar2l
+Queue 1
+Arguments = $(CommonArgs) MCSingleTop
+Queue 1
+Arguments = $(CommonArgs) MCZJets
+Queue 1
+Arguments = $(CommonArgs) MCWJets
+Queue 1
+Arguments = $(CommonArgs) MCOther
+Queue 1
+Arguments = $(CommonArgs) Data
+Queue 1
