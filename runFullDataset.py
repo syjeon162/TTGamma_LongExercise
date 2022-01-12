@@ -39,7 +39,7 @@ mc_group_mapping["MCAll"] = [
 if __name__ == "__main__":
     logging.basicConfig(
         format="%(asctime)s %(name)s:%(levelname)s:%(message)s",
-        level=logging.INFO,
+        level=logging.WARNING,
     )
 
     parser = argparse.ArgumentParser(
@@ -60,7 +60,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-e",
         "--executor",
-        choices=["local", "lpcjq"],
+        choices=["local", "lpcjq", "debug"],
         default="local",
         help="How to run the processing",
     )
@@ -79,6 +79,8 @@ if __name__ == "__main__":
         executor = processor.FuturesExecutor(
             workers=args.workers, status=not args.batch
         )
+    elif args.executor == "debug":
+        executor = processor.IterativeExecutor(status=not args.batch)
     elif args.executor == "lpcjq":
         from distributed import Client
         from lpcjobqueue import LPCCondorCluster
