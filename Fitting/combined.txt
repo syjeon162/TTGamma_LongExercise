@@ -1,12 +1,12 @@
 Combination of dc_sr=data_card_SR.txt  dc_np=data_card_iso.txt  dc_egamma=data_card_electron.txt  dc_muongamma=data_card_muon.txt
 imax 4 number of bins
 jmax 5 number of processes minus 1
-kmax 8 number of nuisance parameters
+kmax 10 number of nuisance parameters
 ----------------------------------------------------------------------------------------------------------------------------------
-shapes *             dc_egamma     ../RootFiles/MisID_Output_electron_dummy.root $PROCESS $PROCESS_$SYSTEMATIC
-shapes *             dc_muongamma  ../RootFiles/MisID_Output_muon_dummy.root $PROCESS $PROCESS_$SYSTEMATIC
-shapes *             dc_np         ../RootFiles/Isolation_Output_dummy.root $PROCESS $PROCESS_$SYSTEMATIC
-shapes *             dc_sr         ../RootFiles/M3_Output_dummy.root $PROCESS $PROCESS_$SYSTEMATIC
+shapes *             dc_egamma     ../RootFiles/MisID_Output_electron.root $PROCESS $PROCESS_$SYSTEMATIC
+shapes *             dc_muongamma  ../RootFiles/MisID_Output_muon.root $PROCESS $PROCESS_$SYSTEMATIC
+shapes *             dc_np         ../RootFiles/Isolation_Output.root $PROCESS $PROCESS_$SYSTEMATIC
+shapes *             dc_sr         ../RootFiles/M3_Output.root $PROCESS $PROCESS_$SYSTEMATIC
 ----------------------------------------------------------------------------------------------------------------------------------
 bin          dc_sr         dc_np         dc_egamma     dc_muongamma
 observation  -1            -1            -1            -1          
@@ -18,6 +18,8 @@ rate                              -1            -1            -1            -1  
 ----------------------------------------------------------------------------------------------------------------------------------
 FSR                     shape     1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0         
 ISR                     shape     1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0         
+JER                     shape     1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0         
+JES                     shape     1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0         
 PDF                     shape     1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0         
 Q2Scale                 shape     1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0         
 btagWeight              shape     1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0           1.0         
@@ -44,3 +46,7 @@ dc_sr autoMCStats 0 1 1
 dc_muongamma autoMCStats 0 1 1
 dc_egamma autoMCStats 0 1 1
 dc_np autoMCStats 0 1 1
+
+theory group	 = PDF Q2Scale ISR FSR
+experiment group = JES JER btagWeight eleEffWeight muEffWeight puWeight
+norm group = nonprompt_norm WG_norm ZG_norm MisID_norm

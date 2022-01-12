@@ -4,7 +4,7 @@ imax 1  number of channels
 jmax *  number of backgrounds
 kmax *  number of nuisance parameters (sources of systematic uncertainty)
 
-shapes * * ../RootFiles/Isolation_Output_dummy.root  $PROCESS $PROCESS_$SYSTEMATIC
+shapes * * ../RootFiles/Isolation_Output.root  $PROCESS $PROCESS_$SYSTEMATIC
 
 ------------
 # we have just one channel, in which we observe 0 events
@@ -29,6 +29,8 @@ Q2Scale shape	    1.          1.          1.          1.          1.          1.
 btagWeight shape    1.          1.          1.          1.          1.          1.
 eleEffWeight shape  1.          1.          1.          1.          1.          1.
 muEffWeight shape   1.          1.          1.          1.          1.          1.
+JER shape           1.          1.          1.          1.          1.          1.
+JES shape           1.          1.          1.          1.          1.          1.
 
 
 * autoMCStats 0 1 1
