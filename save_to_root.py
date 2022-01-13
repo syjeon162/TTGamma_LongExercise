@@ -59,9 +59,9 @@ grouping_dataset = {
        # "GJets_HT200To400",
        # "GJets_HT400To600",
        # "GJets_HT600ToInf",
-       # "ZZ",
-       # "WZ",
-      #  "WW",
+        "ZZ",
+        "WZ",
+        "WW",
         #"QCD.",
         #"TGJets",
 
